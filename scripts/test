@@ -1,0 +1,5 @@
+#!/bin/bash -exu
+
+ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+rspec "${ROOT_DIRECTORY}/acceptance_tests"

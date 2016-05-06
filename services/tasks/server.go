@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gdean123/full-stack-microservices/tasks_service/handlers"
+	"github.com/gdean123/full-stack-microservices/services/tasks/handlers"
 )
 
 func main() {

@@ -3,5 +3,5 @@
 ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
 pushd "${ROOT_DIRECTORY}" > /dev/null
-  ruby server.rb
+  foreman start
 popd > /dev/null
