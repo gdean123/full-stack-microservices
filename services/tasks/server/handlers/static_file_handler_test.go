@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gdean123/full-stack-microservices/services/tasks/handlers"
+	"github.com/gdean123/full-stack-microservices/services/tasks/server/handlers"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

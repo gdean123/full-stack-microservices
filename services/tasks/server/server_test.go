@@ -3,6 +3,8 @@ package main_test
 import (
 	"io/ioutil"
 	"net/http"
+	"os"
+	"path/filepath"
 	"time"
 
 	. "github.com/onsi/ginkgo"
@@ -11,10 +13,18 @@ import (
 )
 
 var _ = Describe("Tasks Service", func() {
-	var session *gexec.Session
+	var (
+		session *gexec.Session
+	)
 
 	BeforeEach(func() {
-		session = runServer()
+		staticFileDir, err := ioutil.TempDir("", "")
+		Expect(err).NotTo(HaveOccurred())
+
+		err = ioutil.WriteFile(filepath.Join(staticFileDir, "hello_world.html"), []byte("<html>Hello World</html>"), os.ModePerm)
+		Expect(err).NotTo(HaveOccurred())
+
+		session = runServer(staticFileDir)
 	})
 
 	AfterEach(func() {
@@ -28,7 +38,7 @@ var _ = Describe("Tasks Service", func() {
 		body, err := ioutil.ReadAll(response.Body)
 		Expect(err).NotTo(HaveOccurred())
 
-		Expect(string(body)).To(ContainSubstring(`is: "hello-world"`))
+		Expect(string(body)).To(Equal("<html>Hello World</html>"))
 		Expect(response.StatusCode).To(Equal(http.StatusOK))
 	})
 })

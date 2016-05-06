@@ -2,6 +2,6 @@
 
 ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
-pushd "${ROOT_DIRECTORY}/server" > /dev/null
-  go run server.go "${ROOT_DIRECTORY}/build/public"
+pushd "${ROOT_DIRECTORY}/client" > /dev/null
+  ./node_modules/gulp/bin/gulp.js jasmine
 popd > /dev/null

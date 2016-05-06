@@ -24,7 +24,7 @@ var (
 var _ = BeforeSuite(func() {
 	var err error
 
-	pathToTasksService, err = gexec.Build("github.com/gdean123/full-stack-microservices/tasks_service")
+	pathToTasksService, err = gexec.Build("github.com/gdean123/full-stack-microservices/services/tasks/server")
 	Expect(err).NotTo(HaveOccurred())
 })
 
@@ -32,8 +32,8 @@ var _ = AfterSuite(func() {
 	gexec.CleanupBuildArtifacts()
 })
 
-func runServer() *gexec.Session {
-	cmd := exec.Command(pathToTasksService, "public")
+func runServer(staticFileDir string) *gexec.Session {
+	cmd := exec.Command(pathToTasksService, staticFileDir)
 	session, err := gexec.Start(cmd, GinkgoWriter, GinkgoWriter)
 	Expect(err).NotTo(HaveOccurred())
 
