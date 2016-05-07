@@ -1,4 +1,6 @@
 describe("hello world", function() {
+  var container;
+
   beforeEach(function(done) {
     var link = document.createElement("link");
     link.rel = "import";
@@ -7,12 +9,11 @@ describe("hello world", function() {
 
     container = document.createElement("div");
     container.innerHTML = "<hello-world></hello-world>";
-    document.body.appendChild(container);
 
     setTimeout(done, 1000);
   })
 
   it("displays hello world", function() {
-    expect(document.getElementsByTagName("hello-world")[0].innerText).toEqual("Hello, world!")
+    expect(container.innerText).toEqual("Hello, world!")
   })
 })
