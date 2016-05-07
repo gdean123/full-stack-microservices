@@ -6,11 +6,10 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-jasmine-browser": "^1.0.1",
-    "gulp-watch": "^4.3.5",
-    "webpack-stream": "^3.1.0"
+    "gulp-jasmine-browser": "^1.0.1"
   },
   "dependencies": {
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "Polymer": "^1.4.0"
   }
 }
