@@ -21,7 +21,7 @@ var _ = Describe("Tasks Service", func() {
 		staticFileDir, err := ioutil.TempDir("", "")
 		Expect(err).NotTo(HaveOccurred())
 
-		err = ioutil.WriteFile(filepath.Join(staticFileDir, "hello_world.html"), []byte("<html>Hello World</html>"), os.ModePerm)
+		err = ioutil.WriteFile(filepath.Join(staticFileDir, "some_component.html"), []byte("<html>Hello World</html>"), os.ModePerm)
 		Expect(err).NotTo(HaveOccurred())
 
 		session = runServer(staticFileDir)
@@ -32,7 +32,7 @@ var _ = Describe("Tasks Service", func() {
 	})
 
 	It("serves public folder assets", func() {
-		response, err := http.Get("http://localhost:8080/hello_world.html")
+		response, err := http.Get("http://localhost:8080/some_component.html")
 		Expect(err).NotTo(HaveOccurred())
 
 		body, err := ioutil.ReadAll(response.Body)

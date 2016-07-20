@@ -54,7 +54,7 @@ Another approach would be to have a repository that submodules the shell applica
 ## State of the project
 
 This project is still in its infancy. It is comprised of:
-* A tasks service written in Go that serves a hello-world web component
-* A shell application written in Ruby with Sinatra that renders the hello-world web component
+* A tasks service written in Go that serves a task-list web component
+* A shell application written in Ruby with Sinatra that renders the task-list web component
 
-Right now, the hello-world web component is tested with a Jasmine test, but the test is super slow and that is probably not a sustainable approach.
+Right now, the task-list web component is tested with a Jasmine test, but the test is super slow and that is probably not a sustainable approach.
